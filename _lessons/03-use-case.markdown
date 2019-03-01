@@ -1,29 +1,30 @@
 ---
 layout: post
-title:  "Use case: Blockchain applied to supply chain"
+title:  "用例:应用在供应链中的区块链"
 permalink: /lessons/use-case/
 ---
 
 ![use-case]({{ site.baseurl }}/assets/images/use-case.png)
 
-A producer of perishable goods has a process to check if the products are safe for consumption.
+在生产中，易变质产品的生产者通常会有一个检查产品是否可以安全食用的流程。
 
-Once the factory produces a good, it is stored in a warehouse. At this moment, an operator registers the product in the company's system. 
+工厂生产出产品后，这些产品被存放在仓库中。与此同时，操作人员将把这些产品的信息录入公司的系统中。
 
-The same person, or another operator, perform some tests to determine whether the product is safe for consumption or not. The results obtained are stored in a database.
+同一个人或另一个操作员将执行一些测试以确定产品是否可安全使用。测试的结果会被存储在数据库中。
 
-## Finding the value proposition - Why?
+## 寻找value proposition（价值主张） - 为什么？
 
-Which is the exact value proposition to use blockchain in this use case?
+在下面这个用例中，使用区块链的明确价值主张是什么？
 
-Traceability and transparency are vital in logistics. Perishable products are tracked through all the supply chain to decide if the goods can be sold to the consumers.
 
-We will use blockchain to:
+可追溯性和透明度在物流中至关重要。整个供应链都会对易变质产品进行跟踪，以决定这些产品是否可以向消费者销售。
 
-a) Identify each product uniquely. 
+我们将把区块链用于：  
 
-b) Keep track of the state of the product.
+a）唯一地标识每种产品；  
 
-c) Ensure the product follows certain conditions and procedures.
+b）跟踪产品状态；  
 
-d) Certify that only allowed actors can execute specific processes.
+c）确保产品满足某些条件和程序；  
+
+d）确保只有被允许的参与者可以执行特定的过程。

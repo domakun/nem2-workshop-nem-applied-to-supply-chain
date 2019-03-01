@@ -1,18 +1,18 @@
 ---
 layout: post
-title:  "Prepare your workstation"
+title:  "准备工作环境"
 permalink: /lessons/prepare-your-workstation/
 ---
 
 ![4-layered-architecture]({{ site.baseurl }}/assets/images/four-layer-architecture.png)
 
-## Running Catapult Service Bootstrap
+## 运行投石机服务器引导
 
-**Catapult Server nodes** (layer 1) build the peer-to-peer blockchain network. **Catapult Rest nodes** (layer 2) provide the API gateway that the applications may use to access the blockchain and its features.
+**Catapult Server nodes**（第1层）用于构建对等的区块链网络。 **Catapult Rest nodes**（第2层）用于提供应用程序访问区块链或区块链功能的API网关。
 
-You are going to **run a private chain** for learning purposes using [Catapult Service Bootstrap](https://github.com/tech-bureau/catapult-service-bootstrap) in less than 5 minutes. This service runs Catapult server instances and Catapult REST nodes locally.
+您可以在不到5分钟的时间里通过[投石机服务器指南](https://github.com/tech-bureau/catapult-service-bootstrap)来学习 **在本地运行私有链** 。此服务将在本地运行Catapult server实例和Catapult REST nodes。
 
-1\. Make sure you have [docker](https://docs.docker.com/install/) and [docker compose](https://docs.docker.com/compose/install/) installed before running the following commands:
+<strong class='tit'>1\. 在运行以下命令前，确认您已经安装了[docker](https://docs.docker.com/install/) 和 [docker compose](https://docs.docker.com/compose/install/)</strong>
 
 {% highlight bash %}
 git clone https://github.com/tech-bureau/catapult-service-bootstrap.git --branch v0.1.0
@@ -20,33 +20,34 @@ cd catapult-service-bootstrap
 docker-compose up
 {% endhighlight %}
 
-2\. After the image has been downloaded and the service is running, check if you can get the first block information:
+<strong class='tit'>2\. 下载好映像并运行服务后，请先检查是否可以获取第一个块信息：</strong>
 
 {% highlight bash %}
 curl localhost:3000/block/1
 {% endhighlight %}
 
 
-## Downloading the project files
-This workshop is project based. You are going to add some new features to an existing project.
+## 下载项目文件
+本次学习以项目为基础，您将为现有项目添加一些新功能。
 
-1\. Download the workshop repository.
+<strong class='tit'>1\. 下载相关资源</strong>
 
 {% highlight bash %}
 git clone https://github.com/nemtech/nem2-workshop-nem-applied-to-supply-chain.git
 {% endhighlight %}
 
-Under ``project`` folder, there is a ``dashboard`` and a small ``server``  using Express. Both of them have installed the **NEM2 Software Development Kit** (layer 3). NEM2-SDK is the primary software development tool to create NEM2 components, such as other tools, libraries or applications.
+在``project``文件夹下，有一个``dashboard(仪表板)``和一个使用Express框架的小型``server（服务器）``。它们都安装了 **NEM2 Software Development Kit（NEM2软件开发套件）**（第3层）。NEM2-SDK是用于创建其他工具，库或应用程序等NEM2组件的主要软件开发工具。
 
-During this workshop, we are going to use the **Typescript SDK**.
+在本次学习中，我们选择使用 **Typescript SDK**。
 
-2\. Install **typescript** globally. 
+
+<strong class='tit'>2\. 全局安装 **typescript**</strong>
 
 {% highlight bash %}
 npm install -g typescript
 {% endhighlight %}
 
-3\. Run the ``server``.
+<strong class='tit'>3\. 启动``server（服务器）``.</strong>
 
 {% highlight bash %}
 cd <name>/project/server
@@ -54,7 +55,7 @@ npm install
 npm start
 {% endhighlight %}
 
-4\. Open a new terminal, and run the ``dashboard``.
+<strong class='tit'>4\. 打开新的命令行,并启动``dashboard（仪表板）``.</strong>
 
 {% highlight bash %}
 cd <name>/project/dasbhoard
@@ -62,11 +63,11 @@ npm install
 npm start
 {% endhighlight %}
 
-## Installing NEM2-CLI
+## 安装NEM2-CLI
 
-**NEM2-CLI** conveniently allows you to perform the most commonly used commands from your terminal i.e. using it to interact with the blockchain, setting up and account, sending funds, etc.
+**NEM2-CLI** 能帮助您在终端中方便地使用常用命令，您可以用它与区块链进行交互，建立帐户，发送资金等。
 
-Install **nem2-cli** using npm.
+通过npm安装 **nem2-cli**
 
 {% highlight bash %}
 npm i -g nem2-cli

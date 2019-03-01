@@ -1,24 +1,24 @@
 ---
 layout: post
-title:  "Scope definition"
+title:  "范畴定义"
 permalink: /lessons/scope-definition/
 ---
 
 ![development-cycle]({{ site.baseurl }}/assets/images/development-cycle.png)
 
-## What?
+## 是什么?
 
-NEM is a **flexible blockchain** technology.  Instead of uploading all the application logic into the blockchain, you can use its tested features through API calls for:
+NEM是一项 **灵活的区块链** 技术。您不需要在区块链中上传所有程序逻辑，而是可以通过调用下面的这些API（接口）来使用稳定的功能：
 
-* Transfer and storage of value.
-* Authorisation.
-* Traceability.
-* Authentication.
+* 转移和储存有价值的东西；
+* 授权；
+* 追溯；
+* 认证。
 
-The rest of the code remains **off-chain**. This reduces the inherent **immutability risk**, as you could change the process when necessary. Imagine receiving feedback from the users, or the necessity to add a new unexpected functionality.
+其余的代码仍然是 **off-chain（在链外实现）**。这降低了固有的 **immutability risk（不可变风险）**，因为您可能在某些时候会更改流程。您可以是想在未来，您可能收到了用户的反馈信息，或是有了添加新的拓展功能的必要。
 
-We will start with a very basic  **minimum viable product**. Then, as the workshop continues, we will be adding some more complexity.
+我们将从一个非常基础的 **需求最小的产品** 开始。随着接下来的深入，我们将为这个产品拓展更多复杂的功能。
 
-1) As a warehouse operator, I want to register a product.
+1）作为仓库管理者，我想登记一个产品。
 
-2) As a warehouse operator, I want to register if a product is safe for consumption.
+2）作为仓库管理者，我想登记产品是否可以安全食用。

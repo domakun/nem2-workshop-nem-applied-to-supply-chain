@@ -5,60 +5,60 @@
 layout: home
 ---
 
-[Japanese](https://qiita.com/44uk_i3/items/b9c4fc5751d93bf50a3d)
+[日语教程](https://qiita.com/44uk_i3/items/b9c4fc5751d93bf50a3d)
 
-In this workshop, you are going to work with a real use case: blockchain technology applied to **supply chain**. Discover NEM built-in features step by step, using them in an already existent application.
+在本次学习中，您将会使用一个真正的用例来学习：应用于 **供应链的区块链技术**。您将逐步探索NEM内置功能，并在已有的应用程序中使用它们。
 
-After completing the workshop, you will be able to:
+在完成本次学习后，您将会有如下收获：
 
-* Apply the NEM development cycle.
-* Develop applications using advanced NEM built-in features.
+* 熟悉NEM开发流程；
+* 使用NEM高级内置功能开发应用程序。
 
-## Target
+## 目标人群
 
-* Developers (NEM competent)
+* 开发者 (NEM管理人员)
 
-## Requirements
+## 开发环境
 
-Before starting the workshop, install the following packages:
+在开始学习之前，请安装以下软件：
 
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [Docker](https://docs.docker.com/install/)
 * [Docker Compose](https://docs.docker.com/compose/install/)
 * [Node](https://nodejs.org/en/download/) >= 8.9.X.
 
-## Labs
+## 实验
 
-### Lab 1 - Running Catapult and project files
+### 实验 1 - 运行Catapult（投石机）和项目文件
 
-1\. [Introduction](https://nemtech.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/introduction/)
+1\. [介绍](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/introduction/)
 
-2\. [Prepare your workstation](https://nemtech.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/prepare-your-workstation/)
+2\. [准备工作环境](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/prepare-your-workstation/)
 
-### Lab 2 - Applying the NEM development cycle
+### 实验 2 - 熟悉NEM开发流程
 
-3\. [Use case: Blockchain applied to supply chain](https://nemtech.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/use-case//)
+3\. [用例：应用在供应链中的区块链](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/use-case//)
 
-4\. [Scope definition](https://nemtech.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/scope-definition//)
+4\. [范畴定义](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/scope-definition//)
 
-5\. [Authorisation modelling](https://nemtech.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/authorisation-modelling/)
+5\. [授权建模](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/authorisation-modelling/)
 
-6\. [Data modelling](https://nemtech.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/data-modelling/)
+6\. [数据建模](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/data-modelling/)
 
-7\. [One possible solution](https://nemtech.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/solution/)
+7\. [一种可行的方案](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/solution/)
 
-### Lab 3 - Implementing the use case
+### 实验 3 - 实现用例
 
-8\. [Setup: Warehouse operator and safety seal](https://nemtech.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/setup/)
+8\. [设置：仓库操作员和安全封条Setup: Warehouse operator and safety seal](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/setup/)
 
-9\. [Registering products](https://nemtech.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/registering-products/)
+9\. [注册产品Registering products](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/registering-products/)
 
-10\. [Sending the safety seal](https://nemtech.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/sending-the-safety-seal/)
+10\. [发送安全封条Sending the safety seal](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/sending-the-safety-seal/)
 
-### Lab 4 - Extending the use case
+### 实验 4 - 扩展用例
 
-11\. [Adding a digital sensor](https://nemtech.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/adding-a-digital-sensor/)
+11\. [添加数字传感器Adding a digital sensor](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/adding-a-digital-sensor/)
 
-12\. [Adding another operator](https://nemtech.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/adding-another-operator/)
+12\. [添加其他运营商Adding another operator](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/adding-another-operator/)
 
-13\. [Future work](https://nemtech.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/future-work-multilevel-multisig-accounts/)
+13\. [接下来的工作Future work](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/future-work-multilevel-multisig-accounts/)

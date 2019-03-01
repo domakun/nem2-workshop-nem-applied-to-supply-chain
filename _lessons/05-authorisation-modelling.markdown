@@ -1,37 +1,35 @@
 ---
 layout: post
-title:  "Authorisation modelling"
+title:  "授权建模"
 permalink: /lessons/authorisation-modelling/
 ---
 
-## Who and how?
+## 谁来做，怎么做？
 
-At this point, we are not going to think about which specific technologies we will use to fit our objectives. 
+在这一点上，我们不考虑使用特定技术来达到我们的需求。
 
-Before starting to develop, we will define who is allowed to do what. In other words, we will be closing the gap between the physical and digital world. 
+在开发开始之前，我们将定义和允许谁做什么。换句话说，我们要缩小现实世界和数字世界之间的距离。
 
-* [Entity-Control-Boundary Pattern](http://www.cs.sjsu.edu/~pearce/modules/patterns/enterprise/ecb/ecb.htm)
+* [实体-控制-关系 图](http://www.cs.sjsu.edu/~pearce/modules/patterns/enterprise/ecb/ecb.htm)
 
 ![use-case]({{ site.baseurl }}/assets/images/create-product.png)
 
 ![use-case]({{ site.baseurl }}/assets/images/send-safety-seal.png)
 
-**Actors**: Identities who will be interacting with the system we are building.
+**Actors（角色）**：一个用于和我们已构建系统实现交互的身份。
 
-* Warehouse operator.
+* 仓库管理者。
 
-**Boundaries**: How these actors interact with the system. The warehouse communicates with the system using an operator panel. 
+**Boundaries（关系）**：这些actors(角色)如何与系统实现交互。仓库管理者使用操作员面板与系统实现交互。
 
-**Entities**: The data models we should represent in our system.
+**Entities（实体）**：我们在系统中进行抽象的数据模型。
 
-* The product
-* The safety seal
+* 产品
+* 安全封条
 
-**Controllers**: Each actor triggers actions that will perform changes to the entities.
+**Controllers（控制器）**: 每个actor（角色）触发的对entities（实体）执行更改的操作。
 
-* **Create product**: Save a new product in the system.
+* **创建产品**：在系统中储存新产品。
+* **发放安全封条**：在检查产品是否通过手动安全控制后，操作员选择是否发放安全封条。
 
-* **Send safety seal**: After checking that the product passes the manual safety control, the operator sends a safety seal.
-
-The next module shows you how to map entities and actors with NEM Smart Assets System.
-
+下一个模块将向您展示如何使用NEM Smart Assets System（NEM智能资产系统）把实体和角色进行映射。

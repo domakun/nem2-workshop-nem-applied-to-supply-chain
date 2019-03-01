@@ -1,27 +1,26 @@
 ---
 layout: post
-title:  "Introduction"
+title:  "介绍"
 permalink: /lessons/introduction/
 ---
 
-## The Smart Assets System
+## 智能资产系统
 
-NEM is a blockchain platform built from the ground up to be simple for developers to use.
+NEM是一个从底层开始搭建的区块链平台，这方便了开发人员来使用它。
 
-NEM is built around a powerful system to customize your use of the blockchain. We call it the **Smart Asset System**. It gives you the power to use NEM as if it were a custom blockchain built for your application and your assets.
+NEM围绕了一个强大的系统来进行架构，以满足您对区块链的使用需求。我们把这个强大的系统叫做 **智能资产系统**。这个强大的系统让您在使用NEM时更加方便，让NEM像是为您的应用程序和资产量身打造的区块链一样。
 
 ![built-in-features]({{ site.baseurl }}/assets/images/smart-assets-system.png)
 
-Rather than forcing you to write your own “smart contract” from scratch or using off-blockchain methods to define custom assets for your application, NEM gives you direct access to a **specialized set of tested and secure on-blockchain features**.
-                                                                                                                                                                                                                                                     
- **Making API calls**, you can configure your own "Smart Assets" and make use of NEM’s powerful blockchain platform as your fast, secure, and scalable solution.
+NEM不强迫您从头开始编写自己的“智能合约”或使用非区块链方法为您的应用程序定义自定义资产，而是让您直接使用 **一组专门的、经过测试的、安全的区块链功能**。
 
-## Public and Private
+通过 **调用API**，您可以配置自己的“智能资产”，并把NEM强大的区块链平台作为一种快速，安全，可扩展的解决方案。
+
+## 公共与私人
 
 ![built-in-features]({{ site.baseurl }}/assets/images/public-and-private.png)
 
-NEM provides both a decentralized, open and self-sustaining **public blockchain** that can be used by anyone – as well as a **permissioned/private blockchain solution** that you can use when speed and privacy are the priority.
+NEM提供了可供任何人使用的，分散的，开放的和自我维持的 **公共区块链**  -除此之外，还有速度和隐私优先时可以使用的 **许可化/私有化区块链解决方案**。
 
-## Getting started
-
-In the next module, you are going to install the tools and environment to follow this workshop.
+## 开始学习
+在下一个模块中，您将安装工具和环境来进行下一步的学习。

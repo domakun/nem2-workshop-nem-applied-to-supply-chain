@@ -1,51 +1,52 @@
 ---
 layout: post
-title:  "Adding a digital sensor"
+title:  "添加数字传感器"
 permalink: /lessons/adding-a-digital-sensor/
 ---
 
-## Background
+## 背景
 
-Recently, the company has included digital sensors to automatize part of the process. The goal is to decrease human errors, providing a new source of reliability.
+最近，该公司已将数字传感器纳入自动化部分流程。目标是减少人为错误，提供新的可靠性来源。
 
-The warehouse operator still needs to check that the product meets the standards. After the warehouse operator announces the safety seal request, a sensor performs a digital inspection. The digital sensor confirm or deny the safety seal request.
+仓库操作员仍需检查产品是否符合标准。在仓库操作员发布安全密封请求后，传感器再次执行数字化检查。随后，数字传感器接受或拒绝安全封条请求。
 
-* If accepted, the safety seal is sent to the product. 
-* If denied, the sensor sends a transaction to the product, stating the product has not passed the inspection process.
+* 如果请求被接受，安全封条将会被发送到产品上；
+* 如果请求被拒绝，传感器会向产品发送交易，说明产品未通过检验流程。
 
 ![use-case-nem-adding-a-sensor]({{ site.baseurl }}/assets/images/use-case-nem-adding-a-sensor.png)
 
-If we were putting the application logic inside the blockchain, this  little change means throwing the published smart contract. This leads to  spend more time in development and increasing the cost of the platform.
+如果我们将这个应用程序逻辑放在区块链中实现，这个小小的改变意味着抛出仓库操作员已发布的智能合约。这导致花费更多时间进行开发，这会增加平台的成本。
 
-Using NEM, we still need to change our code. In most cases, making changes takes the same as if we were developing an application that is not using blockchain technology.
 
-### Aggregated Transactions
+在使用NEM时，我们仍然需要修改我们的代码。在大多数情况下，进行修改就像我们在开发中没有使用区块链技术的应用程序一样。
 
-[Aggregated Transactions](https://nemtech.github.io/concepts/aggregate-transaction.html) merge multiple transactions into one, allowing trustless swaps and other advanced logic. NEM does this by generating a one-time disposable smart contract. When all involved accounts have cosigned the transaction, all of them are executed at once.
+### 汇总交易
 
-## Solution
+[Aggregated Transactions（汇总交易）](https://nemtech.github.io/concepts/aggregate-transaction.html)将多个事务合并为一个，允许无信任交换和其他高级逻辑。NEM通过生成一次性智能合约来实现这一功能。当所有涉及的帐户都已签署交易时，所有这些帐户都会立即执行汇总交易。
 
-### New Actor: Digital Safety Sensor 
+## 实现方法
 
-We should decide how we represent the digital safety sensor in our existing project.
+### 新角色：Digital Safety Sensor(数字安全传感器)
 
-The digital sensor requires to cosign transactions. That's the reason why it is represented as an account.
+我们应该决定如何在现有项目中表示数字安全传感器。
 
-Create digital safety sensor account.
+因为数字传感器需要参与交易，所以它被表示为一个帐户。
+
+创建Digital Safety Sensor(数字安全传感器)账户。
 
 {% highlight bash %}
-  nem2-cli account generate --network MIJIN_TEST --url http://localhost:3000 --profile sensor --save 
+  nem2-cli account generate --network MIJIN_TEST --url http://localhost:3000 --profile sensor --save
 {% endhighlight %}
 
 
-### Modify createSafetySealTransaction function
+### 修改createSafetySealTransaction函数
 
-1\. Open ``project/dashboard/src/app/services/safetySeal.service.ts``, and modify ``transferSafetySeal`` function.
+<strong class='tit'>1\. 打开``project/dashboard/src/app/services/safetySeal.service.ts``,修改``transferSafetySeal``函数。</strong>
 
-2\. Create two transfer transactions:
+<strong class='tit'>2\. 创建两个转让交易</strong>
 
-* **operatorToProductTransaction**:Transfer Transaction to product address, sending one company.safety seal.
-* **sensorToProductTransaction**: Transfer Transaction to product address, with the message inspection, passed.
+* **operatorToProductTransaction（操作员到产品交易）**:通过产品地址产生转让交易，发送一个company.safety封条。Transfer Transaction to product address, sending one company.safety seal.
+* **sensorToProductTransaction（传感器到产品交易）**: 通过产品地址产生转让交易，并通过消息检查。
 
 {% highlight typescript %}
 createSafetySealTransaction(productAddress: Address, operatorAccount: PublicAccount): AggregateTransaction {
@@ -68,16 +69,16 @@ createSafetySealTransaction(productAddress: Address, operatorAccount: PublicAcco
       PlainMessage.create('Inspection passed'),
       NetworkType.MIJIN_TEST
     );
-        
+
     [...]  
 }   
 {% endhighlight %}
 
-3\. Then, wrap these transfer transactions inside an aggregate transaction. State who the signers of each transaction are.
+<strong class='tit'>3\. 然后，将这些转让事务包装在汇总事务，表明每笔交易的签名者是谁。</strong>
 
-An aggregated transaction is complete if all required cosigners have  signed it.
+汇总交易在具备所有必需签名者的签名时完成。
 
-The warehouse operator will sign and announce the transaction, so we still require the signature from the digital sensor. We call this type of transactions ``aggregate bonded``.
+仓库操作员将要签署并发布交易，因此我们还需要数字传感器的签名。我们将这种类型的交易称为``aggregate bonded（汇总绑定）``。
 
 {% highlight typescript %}
 createSafetySealTransaction(productAddress: Address, operatorAccount: PublicAccount): AggregateTransaction {
@@ -100,7 +101,7 @@ createSafetySealTransaction(productAddress: Address, operatorAccount: PublicAcco
       PlainMessage.create('Inspection passed'),
       NetworkType.MIJIN_TEST
     );
-    
+
     return AggregateTransaction.createBonded(
       Deadline.create(),
       [
@@ -111,13 +112,13 @@ createSafetySealTransaction(productAddress: Address, operatorAccount: PublicAcco
 }
 {% endhighlight %}
 
-4\. Open ``project/dashboard/src/app/components/sendsafetySeal.component.ts`` and edit ``sendSafetySeal()`` function.
+<strong class='tit'>4\. 打开 ``project/dashboard/src/app/components/sendsafetySeal.component.ts``，修改``sendSafetySeal()``函数</strong>
 
-When an aggregate transaction is bonded, the warehouse operator needs to lock at least ``10 XEM``.
+当aggregate transaction(汇总事务)被绑定时，仓库操作员需要至少锁定``10 XEM``。
 
-Once the sensor cosigns the aggregate transaction, the amount of locked XEM becomes available again on the warehouse operator's account, and both transactions are executed atomically.
+一旦传感器参与了汇总交易，锁定的XEM数量可以再次在仓库操作员的账户上被使用，并且这两个交易都将自动执行。
 
-5\. Create a lock funds transaction, locking 10 XEM for the hash of the signed transaction.
+<strong class='tit'>5\. 创建一个锁定资金事务，锁定10XEM以获取已签名事务的哈希值。</strong>
 
 {% highlight typescript %}
 sendSafetySeal(form) {
@@ -139,7 +140,7 @@ sendSafetySeal(form) {
 {% endhighlight %}
 
 
-6\.  Announce the lock funds transaction and wait until it gets confirmed. Then, announce the aggregate bonded transaction.
+<strong class='tit'>6\. 发布锁定资金交易并等待确认。然后，发布aggregate bonded（汇总绑定）。</strong>
 
 {% highlight typescript %}
 sendSafetySeal(form) {
@@ -177,11 +178,11 @@ sendSafetySeal(form) {
   }
 {% endhighlight %}
 
-### Simulating the digital sensor behaviour
+### 模拟数字传感器的行为
 
-The ``server`` already has a service implemented simulating the digital sensor behaviour.
+ ``server``已经实现了模拟数字传感器行为的服务。
 
-Open ``project/server/.env``, and add the sensor account's private key.
+打开``project/server/.env``,添加传感器帐户的私钥。
 
 {% highlight bash %}
 
@@ -189,30 +190,31 @@ SENSOR_PRIVATE_KEY='134..............526'
 
 {% endhighlight %}
 
-If you are interested, [review here the sensor's code](https://github.com/nemtech/nem2-workshop-nem-applied-to-supply-chain/blob/v0.2.0/project/server/src/service/sensor.service.ts).
+如果您有兴趣，[在这里查看传感器代码](https://github.com/nemtech/nem2-workshop-nem-applied-to-supply-chain/blob/v0.2.0/project/server/src/service/sensor.service.ts).
 
-    ℹ️ In a production environment, you would need to perform further checks, like reviewing the account who announced the transaction, as well as its content.
-        
-The server opens a listener connection. It is notified when a new aggregate bonded transaction arrives to this account.
- 
-At that moment, ``digitalInspection()`` function is called. It returns a random number between 0 and 5. If it is bigger than 2.5, the product passes the inspection and the transaction is cosigned.
+    ℹ️ 在生产环境中，您需要执行进一步检查，例如查看发布交易的帐户及其内容。
 
-If the number is inferior to 2.5, the sensor sends a Transfer Transaction with the message ``Invalid inspection``.
 
-## Testing your changes
+服务器打开了监听者连接。当新的aggregate bonded transaction(汇总绑定交易)到达此帐户时会通知它。
 
-1\. **Restart the server to apply the changes**, and click on the ``Send Safety Seal`` button.
+此时, ``digitalInspection()`` 函数被调用。它返回一个0到5的随机数，如果这个随机数大于2.5，那么这个产品就通过了检查，且交易已经被签署。
 
-After the lock funds transaction is confirmed, you should see the transaction under ``Aggregate bonded added`` section.
+如果数字小于2.5，传感器将发送一个带有``Invalid inspection（无效检查）``信息的转让交易。
+
+## 测试修改
+
+<strong class='tit'>1\. **重新启动服务器以应用更改**, 点击``Send Safety Seal``按钮。</strong>
+
+锁定资金交易确认后，您应该在``aggregate bonded transaction(汇总债券交易)``部分下看到该交易。
 
 ![screenshot-aggregate-bonded-added]({{ site.baseurl }}/assets/images/screenshot-aggregate-bonded-added.png)
 
-The sensor has cosigned the transaction automatically or sent a transfer transaction to your product.
+传感器已自动对交易进行了签名或向您的产品发送了转让交易。
 
-2\. Go to the product detail page. Has the product passed the safety test?
+<strong class='tit'>2\. 到产品详细信息页面下。现在产品通过安全测试了吗？Go to the product detail page. Has the product passed the safety test?</strong>
 
 ![screenshot-product-detail-inspection-failed]({{ site.baseurl }}/assets/images/screenshot-product-detail-inspection-failed.png)
 
-3\. Repeat the process several times with different products, until one of them gets the safety seal.
+<strong class='tit'>3\. 用不同的产品重复几次，直到其中一个获得安全封条。</strong>
 
 ![screenshot-product-detail-inspection-passed]({{ site.baseurl }}/assets/images/screenshot-product-detail-inspection-passed.png)

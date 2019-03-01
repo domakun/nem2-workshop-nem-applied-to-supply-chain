@@ -5,22 +5,43 @@ body {
 }
 
 * {
-  font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+  color: #333447;
+  font-family: 'Source Sans Pro',"Source Han Sans CN","Microsoft YaHei",tahoma,arial,simsun;
 }
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 300;
+h1 {
+  letter-spacing: 10px;
+}
+h1+p {
+  letter-spacing: 7px;
+}
+h4, h5, h6 {
+  font-weight: 600;
   line-height: 1.1;
   color: inherit;
 }
-
+h3 {
+  font-weight: 400;
+  font-size: 20px;
+}
+p a {
+  font-weight: 400;
+}
 a {
   color: #2780e3;
+  font-weight: 400;
+  font-size: 15px;
   &:hover {
     color: #165ba8;
   }
 }
-
+strong.tit {
+  display:block;
+  margin: 16px 0px ;
+  font-size: 16px;
+  font-family: 'Microsoft YaHei';
+  color: #444;
+  font-weight: 400;
+}
 .gap{
   margin-top: 30px;
 }
@@ -31,6 +52,10 @@ a {
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
+}
+code {
+  word-spacing: 2px;
+  line-height: 1.8em;
 }
 
 @media screen and (min-width: 768px) {
@@ -98,6 +123,8 @@ hr {
     letter-spacing: 0.5px;
     font-weight: 400;
     color: #555;
+    display:block;
+    width:200px;
     img {
       height: 21px;
     }
@@ -116,7 +143,9 @@ hr {
     display: none;
   }
 }
-
+.start-wrapper h1 {
+  color: white;
+}
 .start-wrapper {
   padding-top: 60px;
   min-height: 250px;
@@ -195,6 +224,16 @@ hr {
   display: block;
 }
 
+.lesson li, .home li{
+  font-weight: 400;
+  padding: 5px 0px;
+  font-size: 15px;
+  margin-left: 30px;
+}
+.lesson-content p:first-of-type{
+  margin-top: 20px;
+}
+
 /* Footer */
 .site-footer {
   padding: 15px 0px;
@@ -215,4 +254,3 @@ hr {
     }
   }
 }
-

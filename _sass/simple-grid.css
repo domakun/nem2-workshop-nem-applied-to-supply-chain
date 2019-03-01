@@ -1,11 +1,19 @@
-/**
-*** SIMPLE GRID
-*** (C) ZACH COLE 2016
-**/
+// SIMPLE GRID - SASS/SCSS
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic);
 
-/* UNIVERSAL */
+// fonts
+$font-family: 'Lato', Helvetica, sans-serif;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-heavy: 700;
+$font-height: 1.5;
+
+// colors
+$dark-grey: #333447;
+$dark-gray: #333447; // for the Americans
+
+// universal
 
 html,
 body {
@@ -18,22 +26,24 @@ body {
   font-size: 100%;
 }
 
-/* ROOT FONT STYLES */
-
 * {
-  font-family: 'Lato', Helvetica, sans-serif;
-  color: #333447;
-  line-height: 1.5;
+  font-family: $font-family;
+  color: $dark-grey;
+  line-height: $font-height;
 }
 
-/* TYPOGRAPHY */
+// typography
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 40px;
+  font-weight: 400;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
+  margin: 20px 0px ;
+  font-family: "Source Han Sans CN";
+  font-weight: 400;
 }
 
 h3 {
@@ -53,24 +63,27 @@ h6 {
 }
 
 p {
-  font-size: 1.125rem;
-  font-weight: 200;
-  line-height: 1.8;
+  font-weight: 400;
+  line-height: 2.5;
+  margin-bottom: 8px;
+  font-size: 15px;
+  text-indent: 2em;
+  font-family: 'Microsoft YaHei';
 }
 
 .font-light {
-  font-weight: 300;
+  font-weight: $font-weight-light;
 }
 
 .font-regular {
-  font-weight: 400;
+  font-weight: $font-weight-regular;
 }
 
 .font-heavy {
-  font-weight: 700;
+  font-weight: $font-weight-heavy;
 }
 
-/* POSITIONING */
+// utility
 
 .left {
   text-align: left;
@@ -90,12 +103,31 @@ p {
   text-align: justify;
 }
 
-/* ==== GRID SYSTEM ==== */
+.hidden-sm {
+  display: none;
+}
+
+// grid
+
+$width: 96%;
+$gutter: 4%;
+$breakpoint-small: 33.75em; // 540px
+$breakpoint-med: 45em; // 720px
+$breakpoint-large: 60em; // 960px
 
 .container {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+
+  @media only screen and (min-width: $breakpoint-small) {
+    width: 80%;
+  }
+
+  @media only screen and (min-width: $breakpoint-large) {
+    width: 75%;
+    max-width: 60rem;
+  }
 }
 
 .row {
@@ -107,6 +139,12 @@ p {
   float: left;
   margin: 0.5rem 2%;
   min-height: 0.125rem;
+}
+
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .col-1,
@@ -121,130 +159,37 @@ p {
 .col-10,
 .col-11,
 .col-12 {
-  width: 96%;
+  width: $width;
 }
 
-.col-1-sm {
-  width: 4.33%;
-}
+.col-1-sm { width:($width / 12) - ($gutter * 11 / 12); }
+.col-2-sm { width: ($width / 6) - ($gutter * 10 / 12); }
+.col-3-sm { width: ($width / 4) - ($gutter * 9 / 12); }
+.col-4-sm { width: ($width / 3) - ($gutter * 8 / 12); }
+.col-5-sm { width: ($width / (12 / 5)) - ($gutter * 7 / 12); }
+.col-6-sm { width: ($width / 2) - ($gutter * 6 / 12); }
+.col-7-sm { width: ($width / (12 / 7)) - ($gutter * 5 / 12); }
+.col-8-sm { width: ($width / (12 / 8)) - ($gutter * 4 / 12); }
+.col-9-sm { width: ($width / (12 / 9)) - ($gutter * 3 / 12); }
+.col-10-sm { width: ($width / (12 / 10)) - ($gutter * 2 / 12); }
+.col-11-sm { width: ($width / (12 / 11)) - ($gutter * 1 / 12); }
+.col-12-sm { width: $width; }
 
-.col-2-sm {
-  width: 12.66%;
-}
-
-.col-3-sm {
-  width: 21%;
-}
-
-.col-4-sm {
-  width: 29.33%;
-}
-
-.col-5-sm {
-  width: 37.66%;
-}
-
-.col-6-sm {
-  width: 46%;
-}
-
-.col-7-sm {
-  width: 54.33%;
-}
-
-.col-8-sm {
-  width: 62.66%;
-}
-
-.col-9-sm {
-  width: 71%;
-}
-
-.col-10-sm {
-  width: 79.33%;
-}
-
-.col-11-sm {
-  width: 87.66%;
-}
-
-.col-12-sm {
-  width: 96%;
-}
-
-.row::after {
-	content: "";
-	display: table;
-	clear: both;
-}
-
-.hidden-sm {
-  display: none;
-}
-
-@media only screen and (min-width: 33.75em) {  /* 540px */
-  .container {
-    width: 80%;
-  }
-}
-
-@media only screen and (min-width: 45em) {  /* 720px */
-  .col-1 {
-    width: 4.33%;
-  }
-
-  .col-2 {
-    width: 12.66%;
-  }
-
-  .col-3 {
-    width: 21%;
-  }
-
-  .col-4 {
-    width: 29.33%;
-  }
-
-  .col-5 {
-    width: 37.66%;
-  }
-
-  .col-6 {
-    width: 46%;
-  }
-
-  .col-7 {
-    width: 54.33%;
-  }
-
-  .col-8 {
-    width: 62.66%;
-  }
-
-  .col-9 {
-    width: 71%;
-  }
-
-  .col-10 {
-    width: 79.33%;
-  }
-
-  .col-11 {
-    width: 87.66%;
-  }
-
-  .col-12 {
-    width: 96%;
-  }
+@media only screen and (min-width: $breakpoint-med) {
+  .col-1 { width:($width / 12) - ($gutter * 11 / 12); }
+  .col-2 { width: ($width / 6) - ($gutter * 10 / 12); }
+  .col-3 { width: ($width / 4) - ($gutter * 9 / 12); }
+  .col-4 { width: ($width / 3) - ($gutter * 8 / 12); }
+  .col-5 { width: ($width / (12 / 5)) - ($gutter * 7 / 12); }
+  .col-6 { width: ($width / 2) - ($gutter * 6 / 12); }
+  .col-7 { width: ($width / (12 / 7)) - ($gutter * 5 / 12); }
+  .col-8 { width: ($width / (12 / 8)) - ($gutter * 4 / 12); }
+  .col-9 { width: ($width / (12 / 9)) - ($gutter * 3 / 12); }
+  .col-10 { width: ($width / (12 / 10)) - ($gutter * 2 / 12); }
+  .col-11 { width: ($width / (12 / 11)) - ($gutter * 1 / 12); }
+  .col-12 { width: $width; }
 
   .hidden-sm {
     display: block;
-  }
-}
-
-@media only screen and (min-width: 60em) { /* 960px */
-  .container {
-    width: 75%;
-    max-width: 60rem;
   }
 }

@@ -1,54 +1,53 @@
 ---
 layout: post
-title:  "One possible solution"
+title:  "一种可行的解决方案"
 permalink: /lessons/solution/
 ---
 
-## Architecture
-NEM features are available through the API interface on each node in the network itself. This allows using blockchain technology in a **variety of solution architectures**.
+## 体系
+你可以调用网络中每个节点上的API接口来使用NEM功能。这种模式支持在 **各种解决方案的体系** 中使用区块链技术。
 
-One possible solution for our use case:
+一个可以用于我们的用例解决方案：
 
 ![solution]({{ site.baseurl }}/assets/images/solution.png)
 
-The warehouse operator interacts through a **web app**. 
+仓库操作员通过 **web app（web应用程序）** 实现交互。
 
-The app interfaces with the **company's servers**, where all the products are stored in an **existent SQL database**. 
+该应用程序与 **公司的服务器** 连接，所有产品信息通过公司的服务器存储在 **已有的SQL数据库** 中。
 
-The app also connects with **NEM blockchain**, sending transactions from the client side.
+该应用程序还连接了 **NEM区块链**，并从客户端发布transactions（交易）。
 
-## Where are we using NEM?
+## 我们在什么地方使用NEM?
 
 ![use-case-nem]({{ site.baseurl }}/assets/images/use-case-nem.png)
 
-We have decided to represent **products** and the **warehouse operator** as **accounts**. 
+我们之前已经决定使用 **account(账户)** 代表 **产品** 和 **仓库操作员**。
 
-**Products**
+**产品**
 
-Products are assets: an object that has a value, which is unique and updatable and owned by someone.
+产品即资产：产品是有价值的对象，且该价值是唯一的，可更新的，并由某人拥有。
 
-Accounts can be used to represent assets, identifying each product uniquely and gathering the history of transactions and mosaics sent.
+account(帐户)可用于表示资产，它唯一地标识每个产品，并储存已发布的交易和马赛克的历史记录。
 
-Any actor could trace events related to a product by checking its address. 
+任何actor（角色）都可以通过产品地址来跟踪与产品相关的事件。
 
-Product accounts don't need to send transactions, they only receive them. To guarantee none of them sign transactions, we are generating each public key in a deterministic way. Generate a hash that represents the public key, not knowing the private key related.
+产品帐户不发送交易，而只接收交易。为了保证产品账号不签署交易，我们以确定的方式生成公钥。最终我们生成了一个代表公钥的哈希值，且任何人都无法从这个哈希值获取私钥相关的信息。
 
 *publicKey = sha256(company_identifier + product_identifier)*
 
-By doing this, if the database references are lost, the product information will still be retrievable from the blockchain. The address can be generated again providing the company and product's identifier.
+通这些步骤，即使数据库中的数据丢失，我们仍然可以从区块链中拿到产品信息。我们可以通过提供公司和产品的唯一标识符来再次生成产品的账户地址。
 
-**Warehouse operator**
+**仓库操作员**
+account（账户）就像是一张身份证，帐户能标识并允许仓库操作员产生交易。
 
-As if it were an ID card, an account identifies and allows the warehouse operator to make transactions.
+**安全封条**
 
-**Safety seal**
+**安全封条** 用 **namespace（命名空间）, subnamespace（子命名空间）和mosaic（马赛克）** 表示。命名空间代表公司，子命名空间代表部门。马赛克``company.safety：seal``代表安全封条。
 
-The **safety seal** is represented with a **namespace, a subnamespace and a mosaic**. A namespace identifies the company, and a subnamespace the division. The mosaic ``company.safety:seal`` represents the safety seals. 
+我们可以选择把``transferable（转让）``属性设置为false。 这样可以防止马赛克在发送后再次被转让到其他帐户。但是，由于我们不会保存产品的私钥，因此产品一旦被发送，封条就无法去除。
 
-We could opt to set ``transferable`` property to false. This would prevent transferring the mosaic to other accounts once sent. However, as we are not saving the products' private keys, there is no risk of the seals being moved once sent to a product.
+谁将成为此命名空间和马赛克的所有者？乍一看，似乎仓库操作员的账户就是那个所有者。但是，仓库操作员可能会停止为该公司工作。出于这个原因，我们将创建一个新的 **公司** account（帐户）来注册这个马赛克和命名空间。
 
-Who will be the owner of this namespace and mosaic? At first glance, it may seem that the warehouse operator's account is the one. However, the warehouse operator could stop working for this company. For that reason, we will create a new **company** account to register this mosaic and namespace.
+**公司** 向 **仓库操作员** account（帐户）发送一些马赛克。
 
-The **Company** sends some mosaics to the **warehouse operator** account. 
-
-The warehouse operator sends a **transfer transaction** to the product, with ``1 company.safety:seal mosaic``.
+仓库操作员向产品发送带有``1 company.safety :seal mosaic``的 **转移交易**，。
