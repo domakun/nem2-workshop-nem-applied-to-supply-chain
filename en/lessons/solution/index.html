@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>One possible solution | NEM blockchain applied to supply chain</title>
+<meta name="generator" content="Jekyll v3.8.3" />
+<meta property="og:title" content="One possible solution" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Architecture NEM features are available through the API interface on each node in the network itself. This allows using blockchain technology in a variety of solution architectures." />
+<meta property="og:description" content="Architecture NEM features are available through the API interface on each node in the network itself. This allows using blockchain technology in a variety of solution architectures." />
+<link rel="canonical" href="http://localhost:4000/en/lessons/solution/" />
+<meta property="og:url" content="http://localhost:4000/en/lessons/solution/" />
+<meta property="og:site_name" content="NEM blockchain applied to supply chain" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-03-11T14:48:20+08:00" />
+<script type="application/ld+json">
+{"headline":"One possible solution","dateModified":"2019-03-11T14:48:20+08:00","description":"Architecture NEM features are available through the API interface on each node in the network itself. This allows using blockchain technology in a variety of solution architectures.","datePublished":"2019-03-11T14:48:20+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/en/lessons/solution/"},"@type":"BlogPosting","url":"http://localhost:4000/en/lessons/solution/","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/en/assets/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/en/feed.xml" title="NEM blockchain applied to supply chain" /></head>
+<body><header class="site-header" role="banner">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/en/"><span><img src="/en/assets/logo-nem.svg"/></span> workshop</a><nav class="site-nav">
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+            <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+            </label>
+
+            <div class="trigger">
+                <div class="changeLanguage">
+                <select onchange="changeLanguage('/lessons/solution/')" id="languageType">
+                  <option value ="language" disabled selected>Language</option>
+                  <option value ="en">English</option>
+                  <option value ="ch">中文</option>
+                </select>
+              </div>
+                <i class="fab fa-github"></i> <a class="page-link" href="/edit/master/_lessons/07-solution.markdown"> Edit on GitHub</a>
+            </div>
+        </nav></div>
+</header><main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="row">
+
+    <div class="sidebar-wrapper col-3">
+        <ol><li>
+                <a href="/en/lessons/introduction/">
+                    Introduction
+                </a>
+            </li><li>
+                <a href="/en/lessons/prepare-your-workstation/">
+                    Prepare your workstation
+                </a>
+            </li><li>
+                <a href="/en/lessons/use-case/">
+                    Use case: Blockchain applied to supply chain
+                </a>
+            </li><li>
+                <a href="/en/lessons/scope-definition/">
+                    Scope definition
+                </a>
+            </li><li>
+                <a href="/en/lessons/authorisation-modelling/">
+                    Authorisation modelling
+                </a>
+            </li><li>
+                <a href="/en/lessons/data-modelling/">
+                    Data modelling
+                </a>
+            </li><li>
+                <a href="/en/lessons/solution/">
+                    One possible solution
+                </a>
+            </li><li>
+                <a href="/en/lessons/setup/">
+                    Setup: Warehouse operator and safety seal
+                </a>
+            </li><li>
+                <a href="/en/lessons/registering-products/">
+                    Registering products
+                </a>
+            </li><li>
+                <a href="/en/lessons/sending-the-safety-seal/">
+                    Sending the safety seal
+                </a>
+            </li><li>
+                <a href="/en/lessons/adding-a-digital-sensor/">
+                    Adding a digital sensor
+                </a>
+            </li><li>
+                <a href="/en/lessons/adding-another-operator/">
+                    Adding another operator
+                </a>
+            </li><li>
+                <a href="/en/lessons/future-work-multilevel-multisig-accounts/">
+                    Future work
+                </a>
+            </li></ol>
+
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="NEM blockchain applied to supply chain #NEM" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+
+    <div class="col-9">
+        <article class="lesson h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+            <header class="lesson-header">
+                <h1 class="lesson-title p-name" itemprop="name headline">One possible solution</h1>
+            </header>
+
+            <div class="lesson-content e-content" itemprop="articleBody">
+                <h2 id="architecture">Architecture</h2>
+<p>NEM features are available through the API interface on each node in the network itself. This allows using blockchain technology in a <strong>variety of solution architectures</strong>.</p>
+
+<p>One possible solution for our use case:</p>
+
+<p><img src="/en/assets/images/solution.png" alt="solution" /></p>
+
+<p>The warehouse operator interacts through a <strong>web app</strong>.</p>
+
+<p>The app interfaces with the <strong>company’s servers</strong>, where all the products are stored in an <strong>existent SQL database</strong>.</p>
+
+<p>The app also connects with <strong>NEM blockchain</strong>, sending transactions from the client side.</p>
+
+<h2 id="where-are-we-using-nem">Where are we using NEM?</h2>
+
+<p><img src="/en/assets/images/use-case-nem.png" alt="use-case-nem" /></p>
+
+<p>We have decided to represent <strong>products</strong> and the <strong>warehouse operator</strong> as <strong>accounts</strong>.</p>
+
+<p><strong>Products</strong></p>
+
+<p>Products are assets: an object that has a value, which is unique and updatable and owned by someone.</p>
+
+<p>Accounts can be used to represent assets, identifying each product uniquely and gathering the history of transactions and mosaics sent.</p>
+
+<p>Any actor could trace events related to a product by checking its address.</p>
+
+<p>Product accounts don’t need to send transactions, they only receive them. To guarantee none of them sign transactions, we are generating each public key in a deterministic way. Generate a hash that represents the public key, not knowing the private key related.</p>
+
+<p><em>publicKey = sha256(company_identifier + product_identifier)</em></p>
+
+<p>By doing this, if the database references are lost, the product information will still be retrievable from the blockchain. The address can be generated again providing the company and product’s identifier.</p>
+
+<p><strong>Warehouse operator</strong></p>
+
+<p>As if it were an ID card, an account identifies and allows the warehouse operator to make transactions.</p>
+
+<p><strong>Safety seal</strong></p>
+
+<p>The <strong>safety seal</strong> is represented with a <strong>namespace, a subnamespace and a mosaic</strong>. A namespace identifies the company, and a subnamespace the division. The mosaic <code class="highlighter-rouge">company.safety:seal</code> represents the safety seals.</p>
+
+<p>We could opt to set <code class="highlighter-rouge">transferable</code> property to false. This would prevent transferring the mosaic to other accounts once sent. However, as we are not saving the products’ private keys, there is no risk of the seals being moved once sent to a product.</p>
+
+<p>Who will be the owner of this namespace and mosaic? At first glance, it may seem that the warehouse operator’s account is the one. However, the warehouse operator could stop working for this company. For that reason, we will create a new <strong>company</strong> account to register this mosaic and namespace.</p>
+
+<p>The <strong>Company</strong> sends some mosaics to the <strong>warehouse operator</strong> account.</p>
+
+<p>The warehouse operator sends a <strong>transfer transaction</strong> to the product, with <code class="highlighter-rouge">1 company.safety:seal mosaic</code>.</p>
+
+            </div>
+            <div class="page-navigation">
+                
+                <a class="prev" href="/en/lessons/data-modelling/">&laquo; Data modelling</a>
+                
+                
+                <a class="next" href="/en/lessons/setup/">Setup: Warehouse operator and safety seal &raquo;</a>
+                
+            </div><a class="u-url" href="/en/lessons/solution/" hidden></a>
+
+        </article>
+    </div>
+
+</div>
+      </div>
+    </main><footer class="site-footer h-card">
+    <div class="wrapper">
+        <div class="footer-col-wrapper row">
+
+            <div class="footer-col col-4">
+                <i class="fas fa-code"></i> <a href="https://nemtech.github.io">Developer Center</a>
+            </div>
+
+            <div class="footer-col col-4">
+                <i class="fab fa-slack"></i> <a  href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM">General Discussion</a>
+            </div>
+
+            <div class="footer-col col-4">
+                <i class="fab fa-stack-overflow"></i><a  href="https://stackoverflow.com/tags/nem/"> Development questions</a>
+            </div>
+        </div>
+
+    </div>
+</footer>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="/en/assets/custom.js"></script></body>
+
+</html>

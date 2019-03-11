@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Registering products | NEM blockchain applied to supply chain</title>
+<meta name="generator" content="Jekyll v3.8.3" />
+<meta property="og:title" content="Registering products" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Open the dashboard. The warehouse operator uses it to register products and send safety seals. However, the integration with NEM blockchain technology is not 100% done. Step by step, you will have to complete the code to make the use case work." />
+<meta property="og:description" content="Open the dashboard. The warehouse operator uses it to register products and send safety seals. However, the integration with NEM blockchain technology is not 100% done. Step by step, you will have to complete the code to make the use case work." />
+<link rel="canonical" href="http://localhost:4000/en/lessons/registering-products/" />
+<meta property="og:url" content="http://localhost:4000/en/lessons/registering-products/" />
+<meta property="og:site_name" content="NEM blockchain applied to supply chain" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-03-11T14:48:20+08:00" />
+<script type="application/ld+json">
+{"headline":"Registering products","dateModified":"2019-03-11T14:48:20+08:00","description":"Open the dashboard. The warehouse operator uses it to register products and send safety seals. However, the integration with NEM blockchain technology is not 100% done. Step by step, you will have to complete the code to make the use case work.","datePublished":"2019-03-11T14:48:20+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/en/lessons/registering-products/"},"@type":"BlogPosting","url":"http://localhost:4000/en/lessons/registering-products/","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/en/assets/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/en/feed.xml" title="NEM blockchain applied to supply chain" /></head>
+<body><header class="site-header" role="banner">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/en/"><span><img src="/en/assets/logo-nem.svg"/></span> workshop</a><nav class="site-nav">
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+            <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+            </label>
+
+            <div class="trigger">
+                <div class="changeLanguage">
+                <select onchange="changeLanguage('/lessons/registering-products/')" id="languageType">
+                  <option value ="language" disabled selected>Language</option>
+                  <option value ="en">English</option>
+                  <option value ="ch">中文</option>
+                </select>
+              </div>
+                <i class="fab fa-github"></i> <a class="page-link" href="/edit/master/_lessons/09-registering-products.markdown"> Edit on GitHub</a>
+            </div>
+        </nav></div>
+</header><main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="row">
+
+    <div class="sidebar-wrapper col-3">
+        <ol><li>
+                <a href="/en/lessons/introduction/">
+                    Introduction
+                </a>
+            </li><li>
+                <a href="/en/lessons/prepare-your-workstation/">
+                    Prepare your workstation
+                </a>
+            </li><li>
+                <a href="/en/lessons/use-case/">
+                    Use case: Blockchain applied to supply chain
+                </a>
+            </li><li>
+                <a href="/en/lessons/scope-definition/">
+                    Scope definition
+                </a>
+            </li><li>
+                <a href="/en/lessons/authorisation-modelling/">
+                    Authorisation modelling
+                </a>
+            </li><li>
+                <a href="/en/lessons/data-modelling/">
+                    Data modelling
+                </a>
+            </li><li>
+                <a href="/en/lessons/solution/">
+                    One possible solution
+                </a>
+            </li><li>
+                <a href="/en/lessons/setup/">
+                    Setup: Warehouse operator and safety seal
+                </a>
+            </li><li>
+                <a href="/en/lessons/registering-products/">
+                    Registering products
+                </a>
+            </li><li>
+                <a href="/en/lessons/sending-the-safety-seal/">
+                    Sending the safety seal
+                </a>
+            </li><li>
+                <a href="/en/lessons/adding-a-digital-sensor/">
+                    Adding a digital sensor
+                </a>
+            </li><li>
+                <a href="/en/lessons/adding-another-operator/">
+                    Adding another operator
+                </a>
+            </li><li>
+                <a href="/en/lessons/future-work-multilevel-multisig-accounts/">
+                    Future work
+                </a>
+            </li></ol>
+
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="NEM blockchain applied to supply chain #NEM" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+
+    <div class="col-9">
+        <article class="lesson h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+            <header class="lesson-header">
+                <h1 class="lesson-title p-name" itemprop="name headline">Registering products</h1>
+            </header>
+
+            <div class="lesson-content e-content" itemprop="articleBody">
+                <p>Open the <a href="http://localhost:4200">dashboard</a>. The warehouse operator uses it to register products and send safety seals. However, the integration with NEM blockchain technology is not 100% done. Step by step, you will have to complete the code to make the use case work.</p>
+
+<h2 id="background">Background</h2>
+
+<p>Registering a product consists of:</p>
+
+<p>1) Create a new product in the existent SQL database.</p>
+
+<p>2) Create a new blockchain account.</p>
+
+<p>3) Send an initial transaction to the account.</p>
+
+<p>The operator will click <code class="highlighter-rouge">Create Product</code> button in the web app.  The server, which has loaded the company account, will create the product and announce the transaction to the blockchain.</p>
+
+<p>Although the operator performs the action, we have decided to announce the transaction from the server side. This enables us to add the company as the owner of the account in the moment of the creation.</p>
+
+<p><img src="/en/assets/images/use-case-nem-creation.png" alt="use-case-nem-creation" /></p>
+
+<h2 id="solution">Solution</h2>
+
+<p>Under <code class="highlighter-rouge">Create Product</code> tab, click <code class="highlighter-rouge">Create New Product</code> button.</p>
+
+<p><img src="/en/assets/images/screenshot-register-product.png" alt="screenshot-register-product" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ℹ️ The server, the dashboard and the catapult bootstrap service must be running.
+</code></pre></div></div>
+
+<p>When clicking the button, you are making a HTTP POST request to the server. The company’s server is responsible for creating a new product and saving it it in the database.</p>
+
+<p>The public key is generated directly in the dashboard. We are applying the sha256 cryptographic hash algorithm to (‘company’ +  product ID). This latest ID generated by the MySQL database.</p>
+
+<h2 id="is-the-product-in-the-blockchain">Is the product in the blockchain?</h2>
+
+<p>1. Click the product number. The product information screen shows the state of a product. As you can see, NEM blockchain does not know anything about this product.</p>
+
+<p><img src="/en/assets/images/screenshot-first-transfer-transaction.png" alt="screenshot-first-transfer-transaction" /></p>
+
+<p>The product will be stored on the blockchain with the first issued transaction. You must add a function that registers the product in the blockchain.</p>
+
+<p>2. Open <code class="highlighter-rouge">project/server/.env</code>, and add the company’s private key.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">COMPANY_PRIVATE_KEY</span><span class="o">=</span><span class="s1">'B...3'</span></code></pre></figure>
+
+<p>3. Open <code class="highlighter-rouge">project/server/src/controller/product/product.controller.ts</code> and edit <code class="highlighter-rouge">createProduct</code> function. After saving the product in the database, send a first transaction to the product to timestamp its creation’s date.</p>
+
+<figure class="highlight"><pre><code class="language-typescript" data-lang="typescript"><span class="k">export</span> <span class="kd">let</span> <span class="nx">createProduct</span><span class="p">:</span> <span class="nx">ExpressSignature</span> <span class="o">=</span> <span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">productService</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProductService</span><span class="p">();</span>
+
+    <span class="kd">const</span> <span class="nx">companyPrivateKey</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">COMPANY_PRIVATE_KEY</span> <span class="k">as</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">companyAccount</span> <span class="o">=</span> <span class="nx">Account</span>
+        <span class="p">.</span><span class="nx">createFromPrivateKey</span><span class="p">(</span><span class="nx">companyPrivateKey</span><span class="p">,</span> <span class="nx">NetworkType</span><span class="p">.</span><span class="nx">MIJIN_TEST</span><span class="p">);</span>
+
+    <span class="c1">// Save product in the database and return product created</span>
+    <span class="k">return</span> <span class="nx">productService</span><span class="p">.</span><span class="nx">createProduct</span><span class="p">()</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+            <span class="nx">mergeMap</span><span class="p">((</span><span class="nx">product</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nx">productService</span><span class="p">.</span><span class="nx">registerProductInBlockchain</span><span class="p">(</span><span class="nx">companyAccount</span><span class="p">,</span> <span class="nx">product</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">pipe</span><span class="p">(</span>
+                    <span class="nx">map</span><span class="p">((</span><span class="nx">ignored</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">product</span><span class="p">));</span>
+            <span class="p">}),</span>
+        <span class="p">)</span>
+        <span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">product</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">200</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="nx">product</span><span class="p">.</span><span class="nx">toMessage</span><span class="p">()),</span>
+            <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">400</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+<span class="p">};</span></code></pre></figure>
+
+<p>4. Open <code class="highlighter-rouge">project/server/src/domain/product/product.service.ts</code> and complete <code class="highlighter-rouge">registerProductBlockchain</code> function.</p>
+
+<figure class="highlight"><pre><code class="language-typescript" data-lang="typescript"><span class="kr">public</span> <span class="nx">registerProductInBlockchain</span><span class="p">(</span><span class="nx">account</span><span class="p">:</span> <span class="nx">Account</span><span class="p">,</span> <span class="nx">productId</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="nx">TransactionAnnounceResponse</span><span class="o">&gt;</span> <span class="p">{</span>
+
+    <span class="c1">// Create deterministic public key for product</span>
+    <span class="kd">const</span> <span class="nx">product</span> <span class="o">=</span> <span class="nx">Asset</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">account</span><span class="p">.</span><span class="nx">publicAccount</span><span class="p">,</span>
+        <span class="s2">"company"</span><span class="p">,</span>
+        <span class="nx">productId</span><span class="p">.</span><span class="nx">toString</span><span class="p">(),</span>
+        <span class="p">{});</span>
+
+    <span class="c1">// Create transaction</span>
+    <span class="kd">const</span> <span class="nx">publishableProduct</span> <span class="o">=</span> <span class="nx">AssetService</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="nx">product</span><span class="p">);</span>
+
+    <span class="c1">// Sign transfer transaction with company account</span>
+    <span class="kd">const</span> <span class="nx">signedTransaction</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">publishableProduct</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">transactionHttp</span><span class="p">.</span><span class="nx">announce</span><span class="p">(</span><span class="nx">signedTransaction</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>We are generating the first transaction using the third party library <a href="https://github.com/aleixmorgadas/nem2-asset-identifier">nem2-asset-identifier</a>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ℹ️  This library helps us to identify assets in nem blockchain, by creating the public key in a deterministic way. It also provides a set of standards to read and write in accounts that represent assets.
+</code></pre></div></div>
+
+<p>Once the transaction is created and signed with the company’s account, it can be announced to the network. <strong>Restart the server to apply the changes</strong>.</p>
+
+<p>5.Create a new product, and wait a few seconds until the transaction gets confirmed.</p>
+
+<p>6.Click on the product’s number. Under <strong>Last 10 transactions</strong>, see the product registered in the blockchain.</p>
+
+<p><img src="/en/assets/images/screenshot-product-detail.png" alt="screenshot-product-detail" /></p>
+
+            </div>
+            <div class="page-navigation">
+                
+                <a class="prev" href="/en/lessons/setup/">&laquo; Setup: Warehouse operator and safety seal</a>
+                
+                
+                <a class="next" href="/en/lessons/sending-the-safety-seal/">Sending the safety seal &raquo;</a>
+                
+            </div><a class="u-url" href="/en/lessons/registering-products/" hidden></a>
+
+        </article>
+    </div>
+
+</div>
+      </div>
+    </main><footer class="site-footer h-card">
+    <div class="wrapper">
+        <div class="footer-col-wrapper row">
+
+            <div class="footer-col col-4">
+                <i class="fas fa-code"></i> <a href="https://nemtech.github.io">Developer Center</a>
+            </div>
+
+            <div class="footer-col col-4">
+                <i class="fab fa-slack"></i> <a  href="https://join.slack.com/t/nem2/shared_invite/enQtMzY4MDc2NTg0ODgyLTFhZjgxM2NhYTQ1MTY1Mjk0ZDE2ZTJlYzUxYWYxYmJlYjAyY2EwNGM5NzgxMjM4MGEzMDc5ZDIwYTgzZjgyODM">General Discussion</a>
+            </div>
+
+            <div class="footer-col col-4">
+                <i class="fab fa-stack-overflow"></i><a  href="https://stackoverflow.com/tags/nem/"> Development questions</a>
+            </div>
+        </div>
+
+    </div>
+</footer>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="/en/assets/custom.js"></script></body>
+
+</html>
