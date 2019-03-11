@@ -5,22 +5,23 @@
 layout: home
 ---
 
-[日语教程](https://qiita.com/44uk_i3/items/b9c4fc5751d93bf50a3d)
+在本次学习中，您将学习如何证明文件在某个确定时间点之前的有效性。该文件可以是任何您可以想到的、有兴趣进行公证的数字文件———例如有价值的合同，电影剧本或专利。
 
-在本次学习中，您将会使用一个真正的用例来学习：应用于 **供应链的区块链技术**。您将逐步探索NEM内置功能，并在已有的应用程序中使用它们。
+完成本次学习后，您将会习得如下技能:
 
-在完成本次学习后，您将会有如下收获：
+- 认识区块链中的常见策略和文件公证的方法；
+- 认识NEM账户的各种功能；
+- 通过发布交易来改变区块链的状态。
 
-* 熟悉NEM开发流程；
-* 使用NEM高级内置功能开发应用程序。
+基于[Apostille Whitepaper](https://nem.io/wp-content/themes/nem/files/ApostilleWhitePaper.pdf)。Apostille定义了在NEM区块链上转让、更新、标记、和合作公证的方法。
 
 ## 目标人群
 
-* 开发者 (NEM管理人员)
+* 开发者 (NEM高级初学者)
 
-## 开发环境
+## 准备工作
 
-在开始学习之前，请安装以下软件：
+在开始学习前, 请先下载以下资源:
 
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [Docker](https://docs.docker.com/install/)
@@ -29,36 +30,38 @@ layout: home
 
 ## 实验
 
-### 实验 1 - 运行Catapult（投石机）和项目文件
+### 实验 1 - 启动投石机和项目文件
 
-1\. [介绍](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/introduction/)
+1\. [基本介绍](https://nemtechchina.github.io/nem2-workshop-document-notarization/lessons/introduction/)
 
-2\. [准备工作环境](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/prepare-your-workstation/)
+2\. [公共与私有区块链](https://nemtechchina.github.io/nem2-workshop-document-notarization/lessons/public-and-private-blockchain/)
 
-### 实验 2 - 熟悉NEM开发流程
+3\. [准备工作环境](https://nemtechchina.github.io/nem2-workshop-document-notarization/lessons/prepare-your-workstation/)
 
-3\. [用例：应用在供应链中的区块链](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/use-case//)
 
-4\. [范畴定义](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/scope-definition//)
+### 实验 2 - 公证文件
 
-5\. [授权建模](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/authorisation-modelling/)
+4\. [你的第一次公证](https://nemtechchina.github.io/nem2-workshop-document-notarization/lessons/first-notarization/)
 
-6\. [数据建模](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/data-modelling/)
+5\. [内容与所有权认证](https://nemtechchina.github.io/nem2-workshop-document-notarization/lessons/content-and-ownership-verification/)
 
-7\. [一种可行的方案](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/solution/)
+6\. [机密文件的公证](https://nemtechchina.github.io/nem2-workshop-document-notarization/lessons/confidential-notarization/)
 
-### 实验 3 - 实现用例
+### 实验 3 - 公证更新
 
-8\. [设置：仓库操作员和安全封条Setup: Warehouse operator and safety seal](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/setup/)
+7\. [选择交易对象](https://nemtechchina.github.io/nem2-workshop-document-notarization/lessons/recipient/)
 
-9\. [注册产品Registering products](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/registering-products/)
+8\. [启用公证更新](https://nemtechchina.github.io/nem2-workshop-document-notarization/lessons/notarization-updates/)
 
-10\. [发送安全封条Sending the safety seal](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/sending-the-safety-seal/)
+### 实验 4 - 共同签署公证书
 
-### 实验 4 - 扩展用例
+9\. [多重签署公证](https://nemtechchina.github.io/nem2-workshop-document-notarization/lessons/co-signed-notarization/)
 
-11\. [添加数字传感器Adding a digital sensor](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/adding-a-digital-sensor/)
+10\.[转让公证](https://nemtechchina.github.io/nem2-workshop-document-notarization/lessons/transfer-notarization/)
 
-12\. [添加其他运营商Adding another operator](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/adding-another-operator/)
 
-13\. [接下来的工作Future work](https://nemtechchina.github.io/nem2-workshop-nem-applied-to-supply-chain/lessons/future-work-multilevel-multisig-accounts/)
+### 实验 5 - 接下来的工作
+
+11\. [委托公证](https://nemtechchina.github.io/nem2-workshop-document-notarization/lessons/delegated-notarization/)
+
+12\. [接下来的工作: Apostille library](https://nemtechchina.github.io/nem2-workshop-document-notarization/lessons/future-work/)

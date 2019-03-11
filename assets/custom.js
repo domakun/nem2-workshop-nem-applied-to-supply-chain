@@ -6,3 +6,18 @@ function homePageFullWidth(){
 $( document ).ready(function() {
     homePageFullWidth();
 });
+
+function changeLanguage(url){
+  let languageVal = $('#languageType')[0].value ;
+  console.log(url,languageVal)
+  switch (languageVal) {
+    case 'en':
+      window.location.href = '/en'+ url
+      break;
+    case 'ch':
+      window.location.href = url
+      break;
+    default:
+    window.location.href = url
+  }
+}

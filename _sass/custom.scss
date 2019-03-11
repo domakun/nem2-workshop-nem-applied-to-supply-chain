@@ -106,7 +106,6 @@ hr {
 
 /* Header */
 .site-header {
-
   background-color: white;
   border: 0;
   border-radius: 0;
@@ -196,7 +195,14 @@ hr {
     }
   }
 }
-
+.trigger {
+  position: relative;
+}
+.changeLanguage {
+  position: absolute;
+  top: 0px;
+  right: 140px;
+}
 .page-navigation {
   font-size: 14px;
   display: block;
@@ -228,7 +234,7 @@ hr {
   font-weight: 400;
   padding: 5px 0px;
   font-size: 15px;
-  margin-left: 30px;
+  margin-left: 20px;
 }
 .lesson-content p:first-of-type{
   margin-top: 20px;

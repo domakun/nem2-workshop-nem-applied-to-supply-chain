@@ -13,13 +13,13 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: 应用于供应链的NEM区块链
+title: NEM区块链文件公证
 email: david@nemeurope.eu
 description: >- # this means to ignore newlines until "baseurl:"
-  开始逐步开发实际用例
-baseurl: "/nem2-workshop-nem-applied-to-supply-chain" # the subpath of your site, e.g. /blog
-url: "https://nemtechchina.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-repository: nemtechchina/nem2-workshop-nem-applied-to-supply-chain/
+  了解NEM区块链上公证文件的常用策略。
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://nemtechchina.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+repository: nemtechchina/nem2-workshop-document-notarization
 # Build settings
 markdown: kramdown
 theme: minima
@@ -32,6 +32,7 @@ plugins:
 exclude:
 
    - project/
+   - slides/
 
 collections:
   lessons:
